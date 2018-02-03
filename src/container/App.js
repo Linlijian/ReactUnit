@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../component/Person/btt.css';
 import Radium, {StyleRoot} from 'radium';
 import Persons from '../component/Persons/Persons';
+import Contain from '../component/contain/Contain';
+
 
 class App extends Component {
   state =  {
@@ -58,22 +60,6 @@ class App extends Component {
   }
   
   render() {
-    const btt = {
-      backgroundColor: '#4CAF50', /* Green */
-      border: 'none',
-      color: 'white',
-      padding: '15px',
-      textAlign: 'center',
-      textDecoration: 'none',
-      display: 'inline-block',
-      fontSize: '16px',
-      ':hover' : {
-        backgroundColor : 'red',
-        color : 'black'
-      }
-
-    }
-
     let person = null;
     if (this.state.conditionPerson){
       person = (
@@ -84,28 +70,14 @@ class App extends Component {
             change={this.changeEventMap}/>
         </div>
       );
-      btt.backgroundColor = 'red';
-      btt[':hover'] = {
-        backgroundColor : 'blue',
-        color : 'green'
-      }
   }
-  
-  const classdy = []
-  if (this.state.persons.length <= 2) {
-    classdy.push('red')
-  }
-  if (this.state.persons.length <= 1) {
-    classdy.push('big')
-  }
-
+ 
     return (
       // <StyleRoot>
       <div className='center'>
-      {/* <button style={btt} >Changename 1</button> */}
-      {/* <button className='button' onClick={() => this.changeName('arrow function')}>Changename 2</button> */}
-      <p className={classdy.join(' ')}>ทดสอบอะไรหน่อยๆ</p>
-      <button style={btt} onClick={this.conditionPersonChange}>Switch...</button>
+      <Contain persons={this.state.persons}
+               change={this.conditionPersonChange}
+               show={this.state.conditionPerson} />
       {person}
       
       <br/>
@@ -113,6 +85,7 @@ class App extends Component {
       <p onClick={this.changeState}>Click it</p>
       </div>
       // </StyleRoot>
+    
     );
   }
 }
