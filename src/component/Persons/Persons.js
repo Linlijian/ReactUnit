@@ -19,6 +19,15 @@ class Persons extends Component {
                 console.log('Persons.js => insite shouldComponentUpdate()',nextProps,nextState);
                 return true;
         }
+        componentWillUpdate(nextProps, nextState){
+                console.log('Persons.js => insite componentWillUpdate()',nextProps,nextState);
+        }
+        componentDidUpdate(prevProps, prevState){
+                console.log('Persons.js => insite componentDidUpdate()',prevProps,prevState);
+        }
+        componentWillUnmount(){
+                console.log('Persons.js => insite componentWillUnmount()');
+        }
         render(){
                 console.log('Persons.js => insite render()');
                 return this.props.persons.map( (persons,index) => {
