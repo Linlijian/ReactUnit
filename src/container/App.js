@@ -9,23 +9,37 @@ class App extends Component {
   constructor(props){
     super(props);
     console.log('App.js => insite constructor');
+    this.state =  {
+      persons : [
+        {id : 'aasd261', name : 'A' , age : 19},
+        {id : 'a5ssqqa', name : 'B' , age : 20},
+        {id : 'qwe5dss', name : 'C' , age : 21}
+      ],
+      "day" : 24,
+      "month" : 'Dec',
+      year : 2017,
+      conditionPerson :false
+    }
   }
 
   componentWillMount(){
     console.log('App.js => insite componentWillMount()');
   }
-
-  state =  {
-    persons : [
-      {id : 'aasd261', name : 'A' , age : 19},
-      {id : 'a5ssqqa', name : 'B' , age : 20},
-      {id : 'qwe5dss', name : 'C' , age : 21}
-    ],
-    "day" : 24,
-    "month" : 'Dec',
-    year : 2017,
-    conditionPerson :false
+  componentDidMount(){
+    console.log('App.js => insite componentDidMount()');
   }
+
+  // state =  {
+  //   persons : [
+  //     {id : 'aasd261', name : 'A' , age : 19},
+  //     {id : 'a5ssqqa', name : 'B' , age : 20},
+  //     {id : 'qwe5dss', name : 'C' , age : 21}
+  //   ],
+  //   "day" : 24,
+  //   "month" : 'Dec',
+  //   year : 2017,
+  //   conditionPerson :false
+  // }
   
   changeState = () => {
     this.setState({month : 'Jul'})
@@ -69,6 +83,7 @@ class App extends Component {
   }
   
   render() {
+    console.log('App.js => insite render()');
     let person = null;
     if (this.state.conditionPerson){
       person = (
