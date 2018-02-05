@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import '../component/Person/btt.css';
-import Radium, {StyleRoot} from 'radium';
+// import Radium, {StyleRoot} from 'radium';
 import Persons from '../component/Persons/Persons';
 import Contain from '../component/contain/Contain';
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('App.js => insite constructor');
+  }
+
+  componentWillMount(){
+    console.log('App.js => insite componentWillMount()');
+  }
+
   state =  {
     persons : [
       {id : 'aasd261', name : 'A' , age : 19},
@@ -90,4 +99,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;
